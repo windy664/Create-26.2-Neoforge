@@ -30,6 +30,14 @@ jobs:
       - name: Build
         run: ./gradlew build
 
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: create-mod
+          path: |
+            build/libs/*.jar
+          retention-days: 30
+
       - name: Run Gametests
         if: ${{ !inputs.is-release }}
         run: ./gradlew runGameTestServer
