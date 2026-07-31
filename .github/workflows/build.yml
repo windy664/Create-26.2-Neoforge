@@ -1,3 +1,4 @@
+# Trigger re-index
 name: Build
 on:
   push:
